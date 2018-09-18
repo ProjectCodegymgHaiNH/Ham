@@ -60,7 +60,13 @@
         }
 
         this.delete = function (id) {
-
+            let cuoi = this.listPhone.length -1
+            let backup
+            backup = this.listPhone[cuoi]
+            this.listPhone[cuoi]=listPhone[id]
+            this.listPhone[id] = backup
+            this.listPhone.pop(this.listPhone[cuoi])
+            this.display()
         }
     }
 
