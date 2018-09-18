@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng quản lý sản phẩm sử dụng hàm</title>
+</head>
+<body>
+<form name="sanpham">
+
+</form>
+
+<script>
+    let Dienthoai  = function(){
+        this.hienthi = function() {
+            document.write("<input type='text' id='thuoctinh'> \t <input type='button' id='them' value='Thêm' onclick='this.them()'> <br> <br>")
+            document.write("<table border='1' cellspacing='0' cellpadding='0' width='500'>")
+                for (let i=0; i<mang.length; i++) {
+                    document.write("<tr style='text-align: center; font-size: 20px'><td style='padding: 10px 0; font-weight: bold; color: darkred; text-transform: uppercase'>" +
+                        "<a id='maso"+i+"'>"+mang[i]+"</a></td>" +
+
+                        "<td><input type='button' value='Sửa' id='sua"+i+"' style='padding: 10 20'></td>" +
+                        "<td><input type='button' value='Xóa' id='xoa"+i+"' style='padding: 10 20' onclick='xoa("+i+")'></td></tr>")
+                }
+
+            document.write("</table>")
+        }
+
+        this.them = function () {
+            this.mang = []
+            this.dt = document.getElementById("thuoctinh")
+            this.mang.push(dt.value)
+            return this.mang
+        }
+
+        this.sua = function () {
+
+        }
+
+        this.xoa = function (i) {
+        }
+    }
+
+    let listDienThoai = new Dienthoai()
+    listDienThoai.hienthi()
+</script>
+</body>
+</html>
