@@ -22,7 +22,7 @@
 
 <br><br>
 
-<form action="javascript:void(0);" method="POST" id="saveEdit">
+<form action="javascript:void(0);" method="POST" id="saveEdit" >
     <input type="text" id="edit">
     <input type="submit" value="Edit" />
 </form>
@@ -62,15 +62,21 @@
 
         this.add = function () {
             let addProduct = document.getElementById("add").value
-
             this.listPhone.push(addProduct.trim())
-            addProduct = ""
             this.display()
-
+            document.getElementById("add").value = ""
         }
 
         this.edit = function (id) {
-
+            let editProduct = document.getElementById("edit")
+            editProduct.value = this.listPhone[id]
+            self = this;
+            document.getElementById("saveEdit").onsubmit = function () {
+                let produc = editProduct.value
+                self.listPhone.splice(id, 1, produc)
+                self.display()
+                editProduct.value = ""
+            }
         }
 
         this.delete = function (id) {
